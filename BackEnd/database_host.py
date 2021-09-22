@@ -19,9 +19,10 @@ class NotAuthorizedError(Exception):
     'POST;
   ]
 )
-def _get(
+def _get():
   if 'token' not in request.json:
     raise NotAuthorizedError()
   else:
     return db[str(request.json["value"])]
-)
+
+
